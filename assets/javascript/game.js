@@ -18,7 +18,8 @@ var hangman = function () {
     {mascot: "Georgia Tech Yellowjackets", identifier: "gte"}];
 
     //Randomly select answer, make uppercase, make it an array
-    var currentAnswer = answerBank[Math.floor(Math.random() * 10)].mascot.toUpperCase().split("");
+    var randomNum = Math.floor(Math.random() * 10);
+    var currentAnswer = answerBank[randomNum].mascot.toUpperCase().split("");
     console.log(currentAnswer);
 
     var blanks = displayBlanks(currentAnswer);
@@ -121,6 +122,11 @@ var hangman = function () {
         if (answer.textContent.indexOf("__") === -1) {
             console.log("YOU WIN!");
             wins.textContent++;
+            console.log(currentAnswer);
+            console.log(answerBank[randomNum].identifier);
+            var teamImage = document.createElement('img');
+            teamImage.src = "assets/images/" + answerBank[randomNum].identifier + ".jpg";
+            document.getElementById("win-banner").appendChild(teamImage);
             resetGame();
         }
     }
