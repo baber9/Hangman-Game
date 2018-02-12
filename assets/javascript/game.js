@@ -6,19 +6,43 @@ var hangman = function () {
     var answer = document.getElementById("answer");
     
     var answerBank = [
-    {mascot: "Texas Longhorns", identifier: "ut"},   
-    {mascot: "Notre Dame Fighting Irish", identifier: "nd"},
-    {mascot: "Houston Cougars", identifier: "hou"},
-    {mascot: "SMU Mustangs", identifier: "smu"},
-    {mascot: "Texas Tech Red Raiders", identifier: "ttc"},
-    {mascot: "TCU Horned Frogs", identifier: "tcu"},
-    {mascot: "Texas AM Aggies", identifier: "tam"},
-    {mascot: "Florida Gators", identifier: "flo"},
-    {mascot: "Miami Hurricanes", identifier: "mia"},
-    {mascot: "Georgia Tech Yellowjackets", identifier: "gte"}];
+        {mascot: "Arizona Cardinals", identifier: "ARI"},   
+        {mascot: "Atlanta Falcons", identifier: "ATL"},
+        {mascot: "Baltimore Ravens", identifier: "BAL"},
+        {mascot: "Buffalo Bills", identifier: "BUF"},
+        {mascot: "Carolina Panthers", identifier: "CAR"},
+        {mascot: "Chicago Bears", identifier: "CHI"},
+        {mascot: "Cincinnati Bengals", identifier: "CIN"},
+        {mascot: "Cleveland Browns", identifier: "CLE"},
+        {mascot: "Dallas Cowboys", identifier: "DAL"},
+        {mascot: "Denver Broncos", identifier: "DEN"},
+        {mascot: "Detroit Lions", identifier: "DET"},
+        {mascot: "Green Bay Packers", identifier: "GB"},
+        {mascot: "Houston Texans", identifier: "HOU"},
+        {mascot: "Indianapolis Colts", identifier: "IND"},
+        {mascot: "Jacksonville Jaguars", identifier: "JAX"},
+        {mascot: "Kansas City Chiefs", identifier: "KC"},
+        {mascot: "Los Angeles Chargers", identifier: "LAC"},
+        {mascot: "Los Angeles Rams", identifier: "LA"},
+        {mascot: "Miami Dolphins", identifier: "MIA"},
+        {mascot: "Minnesota Vikings", identifier: "MIN"},
+        {mascot: "New England Patriots", identifier: "NE"},
+        {mascot: "New Orleans Saints", identifier: "NO"},
+        {mascot: "New York Giants", identifier: "NYG"},
+        {mascot: "New York Jets", identifier: "NYJ"},
+        {mascot: "Oakland Raiders", identifier: "OAK"},
+        {mascot: "Philadelphia Eagles", identifier: "PHI"},
+        {mascot: "Pittsburgh Steelers", identifier: "PIT"},
+        {mascot: "San Francisco FortyNiners", identifier: "SF"},
+        {mascot: "Seattle Seahawks", identifier: "SEA"},
+        {mascot: "Tampa Bay Buccaneers", identifier: "TB"},
+        {mascot: "Tennessee Titans", identifier: "TEN"},
+        {mascot: "Washington Redskins", identifier: "WAS"}
+    ];
 
     //Randomly select answer, make uppercase, make it an array
-    var randomNum = Math.floor(Math.random() * 10);
+    var randomNum = Math.floor(Math.random() * 32);
+    console.log(randomNum);
     var currentAnswer = answerBank[randomNum].mascot.toUpperCase().split("");
     console.log(currentAnswer);
 
@@ -125,7 +149,7 @@ var hangman = function () {
             console.log(currentAnswer);
             console.log(answerBank[randomNum].identifier);
             var teamImage = document.createElement('img');
-            teamImage.src = "assets/images/" + answerBank[randomNum].identifier + ".jpg";
+            teamImage.src = "assets/images/teams/" + answerBank[randomNum].identifier + ".svg";
             document.getElementById("win-banner").appendChild(teamImage);
             resetGame();
         }
