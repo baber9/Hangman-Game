@@ -42,22 +42,22 @@ var hangman = function () {
 
     //Randomly select answer, make uppercase, make it an array
     var randomNum = Math.floor(Math.random() * 32);
-    console.log(randomNum);
     var currentAnswer = answerBank[randomNum].mascot.toUpperCase().split("");
     console.log(currentAnswer);
 
     var blanks = displayBlanks(currentAnswer);
 
 
-
     // INIT:  onKeyUp Function
     document.onkeyup = function(event) {
         // change input to uppercase
-        var inputLetter = event.key.toUpperCase();  
+        var inputLetter = event.key.toUpperCase();   
         // find keycode
         var inputWhich = event.which;
         // send keycode & letter to input Handler               
-        inputHandler(inputWhich, inputLetter);  
+        inputHandler(inputWhich, inputLetter);
+        console.log(randomNum);
+  
     }
 
     // Initial Display of Blanks as Answer
@@ -148,10 +148,12 @@ var hangman = function () {
             wins.textContent++;
             console.log(currentAnswer);
             console.log(answerBank[randomNum].identifier);
-            var teamImage = document.createElement('img');
+            var teamImage = document.createElement('img'); 
             teamImage.src = "assets/images/teams/" + answerBank[randomNum].identifier + ".svg";
             document.getElementById("win-banner").appendChild(teamImage);
-            resetGame();
+            setTimeout(() => {
+                resetGame()
+            }, 5000);
         }
     }
     
@@ -164,11 +166,20 @@ var hangman = function () {
     }
 
     // Reset Game Function (after win/loss)
-    function resetGame(status) {
+    function resetGame() {
         lettersGuessed = [];
         document.getElementById("letters-guessed").textContent = "";
         guessesRemaining.textContent = 9;
+        document.getElementById("win-banner").textContent= "";
+        hangman();
         // pickRandomAnswer();
     }
-}();
+}
 
+//INIT:  User must press SPACE to start
+document.onkeyup = function(evt) {
+    if (evt.keyCode == 32) {
+        document.getElementById("instruction").textContent = "Choose a letter...";
+        hangman();
+    }
+}
