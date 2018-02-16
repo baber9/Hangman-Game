@@ -54,6 +54,7 @@ var hangman = function () {
         var inputLetter = event.key.toUpperCase();   
         // find keycode
         var inputWhich = event.which;
+        
         // send keycode & letter to input Handler               
         inputHandler(inputWhich, inputLetter);
         console.log(randomNum);
@@ -62,12 +63,13 @@ var hangman = function () {
 
     // Initial Display of Blanks as Answer
     function displayBlanks(word) {
+        console.log(word);
         var blanks = '';
         var blanksArray = [];
         word.forEach(element => {
             if (element === " ") {
-                blanks += "\xa0\xa0";
-                blanksArray.push("\xa0\xa0");
+                blanks +=   "\r\n";     //"\xa0\xa0";
+                blanksArray.push(" ");
             }
             else {
                 blanks += "__ ";
@@ -95,7 +97,7 @@ var hangman = function () {
                     // decrement guesses remaining
                     guessesRemaining.textContent--;
                     if (guessesRemaining.textContent === "0")
-                        gameOver();
+                        gameOver("lose");
                 }
             }
             // letter is in puzzle
@@ -131,12 +133,15 @@ var hangman = function () {
         console.log(word);
         var newWord = '';
         word.forEach(element => {
-            if (word.indexOf(element) !== -1 && word.indexOf(element) !== " ")
+            if (element === " ") {
+                newWord += "\r\n";
+            }
+            else if (word.indexOf(element) !== -1 && word.indexOf(element) !== " "){
                 newWord += element + "\xa0";
-            else if (element === " ")
-                newWord += "\xa0";
-            else   
-                newWord += "_ ";
+            }
+            else   {
+                newWord += "__ ";
+            }
         });
         answer.textContent = newWord;
         checkForWin();
@@ -144,25 +149,29 @@ var hangman = function () {
 
     function checkForWin() {
         if (answer.textContent.indexOf("__") === -1) {
-            console.log("YOU WIN!");
-            wins.textContent++;
-            console.log(currentAnswer);
-            console.log(answerBank[randomNum].identifier);
-            var teamImage = document.createElement('img'); 
-            teamImage.src = "assets/images/teams/" + answerBank[randomNum].identifier + ".svg";
-            document.getElementById("win-banner").appendChild(teamImage);
-            setTimeout(() => {
-                resetGame()
-            }, 5000);
+            gameOver("win");
+            
         }
     }
     
     // GAME OVER FUNCTION
-    function gameOver() {
-        if (guessesRemaining.textContent === "0") {
-            console.log("Game Over");
-            resetGame();
+    function gameOver(outcome) {
+        var teamImage = document.createElement('img'); 
+        if (outcome === "win") {
+            // Display "identifier.svg"
+            teamImage.src = "assets/images/teams/" + answerBank[randomNum].identifier + ".svg";
+            
+        } else {
+            // DISPLAY "lose.svg"
+            teamImage.src = "assets/images/teams/" + outcome + ".svg";
         }
+        console.log(outcome);
+        document.getElementById("win-banner").appendChild(teamImage);
+            wins.textContent++;
+            // setTimeout(() => {
+            //     resetGame()
+            // }, 5000);
+        
     }
 
     // Reset Game Function (after win/loss)
@@ -179,7 +188,11 @@ var hangman = function () {
 //INIT:  User must press SPACE to start
 document.onkeyup = function(evt) {
     if (evt.keyCode == 32) {
-        document.getElementById("instruction").textContent = "Choose a letter...";
+        document.getElementById("instruction").textContent = "Choose a Letter...";
+        // JQuery animation to NLF Logo (grow -> shrink)
+        $("#nfl-logo").animate({ width: "150px", height: "197"}, "normal");
+        setTimeout(() => {
+            $("#nfl-logo").animate({ width: "100px", height: "131.6px"}, "normal")}, 500);
         hangman();
     }
 }

@@ -1,1 +1,53 @@
+/* 
+
+font-family: 'Cormorant Garamond', serif;
+font-family: 'Proza Libre', sans-serif; 
+
+*/
+
+
+.page-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 80px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+}
+
+body {
+    font-family: 'Proza Libre', sans-serif; 
+}
+
+img#nfl-logo {
+    position: relative;
+    width: 100px;
+    margin: -20px auto;
+    top: 50px;
+}
+
+#instruction {
+    color: black;
+    margin: 0 auto;
+}
+
+#answer {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    white-space: pre;
+}
+
+.badge {
+    font-size: inherit;
+    display: inline;
+}
+
+#letters-guessed {
+    font-weight: bold;
+}
+
+li.list-group-item {
+    height: 70px;
+    margin-top: 30px;
+}
+
+
 
