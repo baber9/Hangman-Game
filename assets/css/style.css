@@ -6,48 +6,126 @@ font-family: 'Proza Libre', sans-serif;
 */
 
 
+
+.page-header {
+    padding-bottom: 15px;
+    margin: 20px auto 40px;
+
+}
 .page-header h1 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 80px;
     font-weight: bold;
     text-align: center;
     margin: 0;
+    color: white;
 }
 
 body {
     font-family: 'Proza Libre', sans-serif; 
+    height: 100%;
+    color: white;
+    margin-bottom: 100px;
+}
+
+.bg {
+    background-image: url("../images/field.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 img#nfl-logo {
     position: relative;
     width: 100px;
-    margin: -20px auto;
+    margin: -20px auto auto auto;
     top: 50px;
+    opacity: 0.00;
+}
+
+.display div {
+    height: 90px;
+}
+
+img#trophy-left {
+    width: 50px;
+    position: relative;
+    float: left;
+    top: 20px;
+    visibility: hidden;
+    left: 20px;
+}
+
+img#trophy-right {
+    width: 50px;
+    position: relative;
+    float: right;
+    top: 20px;
+    visibility: hidden;
+    right: 20px;
 }
 
 #instruction {
-    color: black;
-    margin: 0 auto;
+    color: white;
+    margin: auto;
+    font-weight: lighter;
+    background-color: crimson;
 }
 
 #answer {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     white-space: pre;
+    color: white;
 }
 
 .badge {
     font-size: inherit;
     display: inline;
+    background-color: midnightblue;
+    padding: 10px 20px;
+    margin-left: 10px;
+
 }
 
 #letters-guessed {
     font-weight: bold;
 }
 
-li.list-group-item {
-    height: 70px;
-    margin-top: 30px;
+
+/* Sticky Footer Styles */
+
+html {
+    position: relative;
+    min-height: 100%;
 }
 
+.footer {
+display: block;
+position: absolute;
+bottom: 0;
+width: 100%;
+/* Set the fixed height of the footer here */
+height: 100px;
+background-color: rgb(3, 3, 36);
+border-top: 5px solid crimson;
+}
 
+.text-muted {
+    color: lightgray;
+    clear: both;
+    font-size: 12px;
+    text-align: center;
+    margin-top: 40px;
+}
 
+#outcome-banner {
+    position: abosolute;
+    margin-left: 20px;
+}
+
+@media only screen and (max-width: 768px) {
+    .display div {
+        height: 70px;
+    }
+}
