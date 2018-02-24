@@ -14,7 +14,7 @@ font-family: 'Proza Libre', sans-serif;
 }
 .page-header h1 {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 80px;
+    font-size: 6vmax;
     font-weight: bold;
     text-align: center;
     margin: 0;
@@ -44,9 +44,7 @@ img#nfl-logo {
     opacity: 0.00;
 }
 
-.display div {
-    height: 90px;
-}
+
 
 img#trophy-left {
     width: 50px;
