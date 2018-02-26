@@ -5,27 +5,34 @@ font-family: 'Proza Libre', sans-serif;
 
 */
 
+div.row {
+    height: 100px;
+}
 
+
+div.shallow {
+    height: 100px;
+}
 
 .page-header {
     padding-bottom: 15px;
-    margin: 20px auto 40px;
-
+    margin: 0;
+    margin-bottom: 50px;
 }
+
 .page-header h1 {
     font-family: 'Cormorant Garamond', serif;
     font-size: 6vmax;
     font-weight: bold;
     text-align: center;
-    margin: 0;
     color: white;
+    margin: 0;
 }
 
 body {
     font-family: 'Proza Libre', sans-serif; 
     height: 100%;
     color: white;
-    margin-bottom: 100px;
 }
 
 .bg {
@@ -37,11 +44,10 @@ body {
 }
 
 img#nfl-logo {
-    position: relative;
+    /* position: relative; */
     width: 100px;
-    margin: -20px auto auto auto;
-    top: 50px;
-    opacity: 0.00;
+    margin: 0 auto;
+    /* top: 50px; */
 }
 
 
@@ -71,6 +77,7 @@ img#trophy-right {
     background-color: crimson;
 }
 
+
 #answer {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     white-space: pre;
@@ -90,40 +97,12 @@ img#trophy-right {
     font-weight: bold;
 }
 
-
-/* Sticky Footer Styles */
-
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-.footer {
-display: block;
-position: absolute;
-bottom: 0;
-width: 100%;
-/* Set the fixed height of the footer here */
-height: 100px;
-background-color: rgb(3, 3, 36);
-border-top: 5px solid crimson;
-}
-
-.text-muted {
-    color: lightgray;
-    clear: both;
-    font-size: 12px;
-    text-align: center;
-    margin-top: 40px;
-}
-
-#outcome-banner {
-    position: abosolute;
-    margin-left: 20px;
-}
-
 @media only screen and (max-width: 768px) {
-    .display div {
-        height: 70px;
+    .page-header {
+        margin-bottom: 20px;
+    }
+
+    div.inst {
+        height: 50px;
     }
 }
